@@ -38,37 +38,17 @@ public class Cat {
 Cat jim =new Cat("jim");
 Cat bob =new Cat("bob");
 Cat felix =new Cat("felix");
-felix.meow();
-felix.printName();
-felix.kill();
-felix.kill();
-felix.kill();
-felix.kill();
-felix.kill();
-felix.kill();
-felix.kill();
-felix.kill();
-felix.kill();
-bob.meow();
-bob.kill();
-bob.kill();
-bob.kill();
-bob.kill();
-bob.kill();
-bob.kill();
-bob.kill();
-bob.kill();
-bob.kill();
 jim.meow();
-jim.kill();
-jim.kill();
-jim.kill();
-jim.kill();
-jim.kill();
-jim.kill();
-jim.kill();
-jim.kill();
-jim.kill();
+bob.kill();
+bob.kill();
+bob.kill();
+bob.kill();
+bob.kill();
+bob.kill();
+bob.kill();
+bob.kill();
+bob.kill();
+felix.printName();
 
 		// 3. Kill the Cat!
 
