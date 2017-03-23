@@ -31,23 +31,24 @@ void draw(){
 background (123, 123, 123);
 fill(0,255,0);
 ellipse(frogx, frogy, 20, 20);
-car1.display();
-
-car3.display();
-
-car5.display();
-
-car7.display();
-
-car9.display();
-
-car11.display();
-
-car13.display();
-
-car15.display();
-
-car17.display();
+car1.display2();
+car1.getHit();
+car3.display1();
+car3.getHit();
+car5.display2();
+car5.getHit();
+car7.display1();
+car7.getHit();
+car9.display2();
+car9.getHit();
+car11.display1();
+car11.getHit();
+car13.display2();
+car13.getHit();
+car15.display1();
+car15.getHit();
+car17.display2();
+car17.getHit();
 }
 void keyPressed()
 {
@@ -89,24 +90,60 @@ void keyPressed()
    
    }
    public class Car{
-   int Carx;
-   int Cary;
-   int size;
-   int speed;
-   Car(int Carx, int Cary, int size, int speed){
-   this.Carx = Carx;
-   this.Cary = Cary;
-   this.size = size;
-   this.speed = speed;
-   }
+     int Carx;
+     int Cary;
+     int size;
+     int speed;
+     Car(int Carx, int Cary, int size, int speed){
+       this.Carx = Carx;
+       this.Cary = Cary;
+       this.size = size;
+       this.speed = speed;
+     }
     void movel(){
-  Carx -= speed;
-  }
-  void display(){
-   movel();
-  
-    fill(255,255,255);
-    rect(Carx , Cary,  size, 20);
-  }
+      this.Carx -= speed;
+      if(size + Carx < 0){
+        Carx= 400;
+      }
+    }
+    int getX(){
+    return this.Carx;
+    }
+     int getY(){
+    return this.Cary;
+    }
+     int getSize(){
+    return this.size;
+    }
+    void mover(){
+      this.Carx += speed;
+      if(Carx > 400){
+        Carx = 0;
+      }
+    }
 
-   }
+   
+   void display1(){
+     movel();
+     fill(255,255,255);
+     rect(Carx , Cary,  size, 20);
+    }
+    void display2(){
+     mover();
+     fill(255,255,255);
+     rect(Carx , Cary,  size, 20);
+    } 
+     void getHit(){
+if (intersects(this)){
+frogy = 380;
+}
+}            
+       }
+boolean intersects(Car car) {
+if ((frogy > car.getY() && frogy < car.getY()+50) && (frogx > car.getX() && frogx < car.getX()+car.getSize()))
+          return true;
+    else 
+        return false;
+}
+
+
