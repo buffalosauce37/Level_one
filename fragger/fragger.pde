@@ -49,6 +49,10 @@ car15.display1();
 car15.getHit();
 car17.display2();
 car17.getHit();
+if (frogy==20){
+text( "You beat Frogger the Knockoff!", 20, 200); 
+  textSize(tsize); 
+}
 }
 void keyPressed()
 {
@@ -118,7 +122,7 @@ void keyPressed()
     void mover(){
       this.Carx += speed;
       if(Carx > 400){
-        Carx = 0;
+        Carx = -size;
       }
     }
 
@@ -145,5 +149,6 @@ if ((frogy > car.getY() && frogy < car.getY()+50) && (frogx > car.getX() && frog
     else 
         return false;
 }
+int tsize = 20;
 
 
