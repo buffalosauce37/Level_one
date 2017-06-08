@@ -6,13 +6,22 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Whach_a_mole implements ActionListener {
+public class WhakaMole implements ActionListener {
+	void speak(String words) {
+		try {
+			Runtime.getRuntime().exec("say " + words).waitFor();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	JFrame frame = new JFrame();
+	JButton button = new JButton("mole");
+
 	void drawButtons(int num) {
-		JFrame frame = new JFrame();
 		JPanel panel = new JPanel();
 		for (int i = 0; i < 24; i++) {
 			if (i == num) {
-				JButton button = new JButton("mole");
 				panel.add(button);
 				button.addActionListener(this);
 			} else {
@@ -29,20 +38,18 @@ public class Whach_a_mole implements ActionListener {
 	}
 
 	public static void main(String[] args) {
-		Whach_a_mole mole = new Whach_a_mole();
+		WhakaMole mole = new WhakaMole();
 		mole.drawButtons(new Random().nextInt(24));
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		void speak(String words) {
-			try {
-			Runtime.getRuntime().exec("say " + words).waitFor();
-			} catch (Exception e) {
-			e.printStackTrace();
-			}
-			}
-
+		if (e.getSource() == button) {
+			frame.dispose();
+			drawButtons(24);
+		} else {
+			speak("You are a nerd!");
+		}
 	}
 }
